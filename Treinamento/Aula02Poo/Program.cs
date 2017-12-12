@@ -5,42 +5,49 @@ namespace Aula02Poo
 {
     class Program
     {
-
         public static void Print(object o)
         {
             Console.WriteLine(o.ToString());
-
         }
-
-        public static void Show(Local local)
+        public static void Show(Interface1 Iinterface)
         {
-            Console.WriteLine("{0} - {1}", local.Code, local.Size);
+            Console.WriteLine("{0} - {1}", Iinterface.Code, Iinterface.Size);
+            Iinterface.Harvest();
         }
+
 
         static void Main(string[] args)
         {
             int i = 10;
             bool b = true;
-
-            string s = "Evandro";
+            string s = "Sergio";
 
 
             Print(i);
-            Print(s);
             Print(b);
+            Print(s);
 
-            Sector l1 = new Sector("S1", 100);
-            Farm f1 = new Farm();
-            f1.Code = "F1";
+            Sector L1 = new Sector("S1", 100);
+            Farm farm1 = new Farm();
+            farm1.Code = "F1";
 
-            Field f2 = new Field("Field2");
-            f2.Culture = "Soja";
+            Block block1 = new Block();
+            block1.Code = "B1";
+            block1.Size = 50;
 
-            Show(l1);
+            Field field = new Field();
+            field.Code = "F1";
+            field.Size = 10;
+            field.Culture = "Sugar Cane";
 
-            Show(f2);
 
+
+            Show(L1);
+            Show(farm1);
+            Show(block1);
+            Show(field);
             Console.ReadKey();
+
         }
     }
 }
