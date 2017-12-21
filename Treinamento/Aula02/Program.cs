@@ -1,5 +1,6 @@
 ﻿using System;
 using Aula02.Model;
+using System.Text;
 
 namespace Aula02
 {
@@ -32,6 +33,27 @@ namespace Aula02
 
         static void Main(string[] args)
         {
+
+
+            //int i = 10;
+
+            //Console.WriteLine("Input a number: ");
+            //int n = Console.Parse(Console.ReadLine());
+
+            //if (!(i == n)) {
+
+
+            //}else if (i != n) 
+
+            //StringBuilder sb = new StringBuilder;
+
+            //sb.Append("ABC");
+
+           // var name = "1,2,3,4,5";
+
+           // var a = name.Split(",");
+
+           
             Conta c = new ContaCorrente(70, 13);
 
             c.Depositar(100m);

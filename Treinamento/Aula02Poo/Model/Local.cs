@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Aula02Poo.Model
+namespace Aula01.Model
 {
     class Local
     {
-        public int Size { get; set; } = 10;
-
         public string Code { get; set; }
 
+        public int Size { get; set; } = 100;
 
         public Local()
         {
@@ -22,67 +19,61 @@ namespace Aula02Poo.Model
             Size = size;
         }
 
-        public virtual void Harvest()
-        {
-
-
-        }
-
     }
-
-    class Sector : Local
+    class Sector : Local, Interface1
     {
-        
-        public Farm[] Farms { get; set; }
 
+
+        public Farm[] Farms { get; set; }
         public Sector(string code, int size)
             : base(code, size)
         {
-        }
 
-        public override void Harvest()
+        }
+        public void Harvest()
         {
-            Console.WriteLine("Harvest Sector {0}", Code);
+            Console.WriteLine("Harvest Sector {0} ", Code);
         }
     }
 
-    class Farm : Local
+    class Farm : Local, Interface1
     {
+
+
         public Block[] Blocks { get; set; }
 
-        public override void Harvest()
+        public void Harvest()
         {
-            Console.WriteLine("Harvest Blocks {0}", Code);
+            Console.WriteLine("Harvest Farm {0} ", Code);
         }
-
     }
 
-    class Block : Local
+    class Block : Local, Interface1
     {
+
 
         public Field[] Fields { get; set; }
 
-        public override void Harvest()
+        public void Harvest()
         {
-            Console.WriteLine("Harvest Block {0}", Code);
+            Console.WriteLine("Harvest Block {0} ", Code);
         }
-
     }
+    class Field : Local, Interface1
 
-    class Field : Local
     {
-        private string _culture;
 
+
+        private string _culture;
         public string Culture
         {
             get
             {
                 return _culture;
             }
-
             set
             {
-                Culture = _culture;
+                _culture = value;
             }
         }
         public void Plant(string culture)
@@ -90,14 +81,9 @@ namespace Aula02Poo.Model
             Culture = culture;
         }
 
-        public Field(string code)
+        public void Harvest()
         {
-            Code = code;
-        }
-
-        public override void Harvest()
-        {
-            Console.WriteLine("Harvest Field {0} Culture {1}", Code, Culture);
+            Console.WriteLine("Harvest Field {0} - {1} ", Code, Culture);
         }
 
     }

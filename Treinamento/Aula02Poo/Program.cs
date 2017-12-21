@@ -1,7 +1,7 @@
 ﻿using System;
-using Aula02Poo.Model;
+using Aula01.Model;
 
-namespace Aula02Poo
+namespace Aula01
 {
     class Program
     {
@@ -20,7 +20,7 @@ namespace Aula02Poo
         {
             int i = 10;
             bool b = true;
-            string s = "Sergio";
+            string s = "Evandro";
 
 
             Print(i);
